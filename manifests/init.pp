@@ -172,7 +172,7 @@
 # - Original Author
 #
 # Mike Green <myatus@gmail.com>
-# - Added TCPOnly option, general cleanup
+# - Added TCPOnly and Indrect option, general cleanup
 #
 # == Copyright
 #
@@ -183,6 +183,7 @@ define l2mesh(
   $ip,
   $port,
   $tcp_only = 'no',
+  $indirect = 'no',
 ) {
 
   include l2mesh::params
@@ -291,6 +292,7 @@ define l2mesh(
     content     => "Address = ${ip}
 Port = ${port}
 Compression = 0
+IndirectData = ${indirect}
 TCPOnly = ${tcp_only}
 
 ${public_key}
